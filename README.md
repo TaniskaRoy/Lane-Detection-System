@@ -1,20 +1,38 @@
-# Road-Lane-Detection
-Automatic Road Lane Detection using Open Cv
+# Lane-Detection-System
 
-1. The first step that I took was converting the image from RGB to Greyscale
-2. Noise Reduction: 
-The noise reduction process was performed using image smoothening via Gaussian 
-Filtering on the greyscale image using a 5x5 kernel. Although the canny edge 
-detection applies a 5X5 gaussian when we apply it, just wanted to be sure about not 
-missing a step.
-3. Edge detection, Canny edge detection was performed on the blurred image
-4. Region of Interest – from the detected edges a triangle-shaped mask was created on 
-the top of the canny detector to segment out the lane line region of the edges. This 
-region of interest was manually segmented.
-5. From the edges' cropped lines, we then perform Hough transform to identify the 
-lines. The resolution of the Hough accumulator array value as 2 pixels keeping in 
-mind a smaller bin gives more precision for line detection, theta value as pi/180 
-radians and threshold value as 100.
-6. The lines currently displayed belong to the bins which exceeded the voting 
-threshold. Then using these we average out their slope and y-intercept that would 
-trace out to be a single lane.
+
+## Project Overview
+
+This project involves developing an **automatic road lane detection system** using **OpenCV**. The system processes road images to identify and highlight the lane lines, which is a crucial feature for **autonomous vehicles** and **lane-keeping assist systems**.
+
+### Key Steps in the Process:
+1. **RGB to Greyscale Conversion**: The image is first converted from RGB to greyscale to simplify the image data for further processing.
+2. **Noise Reduction**: Gaussian filtering with a 5x5 kernel is applied for noise reduction to smoothen the greyscale image.
+3. **Edge Detection**: **Canny edge detection** is applied to detect the edges in the image.
+4. **Region of Interest (ROI)**: A triangle-shaped mask is manually created to focus on the region of the image containing the lane lines. This region is then segmented out from the detected edges.
+5. **Hough Transform**: The **Hough Transform** is used to detect straight lines in the image. The Hough accumulator array has a resolution of 2 pixels, theta value as **π/180 radians**, and a threshold of 100 to ensure precision in line detection.
+6. **Lane Mapping**: Detected lines are averaged based on their slopes and y-intercepts to trace out a single lane line.
+
+### Key Features:
+- **Automatic Road Lane Detection** using OpenCV.
+- **Image Preprocessing**: RGB to greyscale conversion, noise reduction via Gaussian filtering.
+- **Edge Detection** using Canny edge detection.
+- **Lane Line Identification** using Hough Transform with fine-tuned parameters.
+- **Lane Mapping**: Averaging slopes and intercepts to draw accurate lane lines.
+
+## Files in the Project
+
+1. **Road Lane Detection.ipynb**: The Jupyter Notebook containing the code for lane detection using OpenCV.
+2. **Road_Pic.jpg**: The sample road image that is passed through the lane detection model to detect lane lines.
+
+## Applications
+
+The road lane detection system can be applied in various fields, including:
+- **Autonomous Vehicles**: For lane-keeping assist systems to ensure the vehicle stays within its lane.
+- **Driver Assistance Systems**: To alert drivers when they unintentionally drift out of their lane.
+- **Smart Transportation Systems**: For real-time traffic analysis and route navigation.
+- **Advanced Driver Assistance Systems (ADAS)**: Enhancing safety by providing lane recognition as part of a broader system to assist drivers.
+
+## Conclusion
+
+The automatic road lane detection system improves lane-keeping assist systems, contributing to better safety and accuracy in autonomous vehicles and driver assistance technology. By using techniques like Canny edge detection and Hough Transform, the system efficiently detects and maps lane lines, which can be further applied to real-world transportation technologies.
